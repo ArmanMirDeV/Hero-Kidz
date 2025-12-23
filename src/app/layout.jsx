@@ -1,10 +1,18 @@
-import { Geist, Geist_Mono, Lexend } from "next/font/google";
+import {  Lexend, Noto_Serif_Bengali } from "next/font/google";
+
 import "./globals.css";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 
 const lexend = Lexend({
   weight: ["100", "200", "400", "500", "600", "800"],
+});
+
+
+// Noto Serif Bengali for Bengali text
+export const notoSerifBengali = Noto_Serif_Bengali({
+  weight: ["400", "700"],
+  subsets: ["bengali"],
 });
 
 export const metadata = {
@@ -15,12 +23,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${lexend.className} antialiased`}>
+      <body className={`${lexend.className}   antialiased`}>
         <header className="py-2 md:w-11/12 mx-auto  ">
           <Navbar />
         </header>
 
-        <main className="py-2 md:w-11/12 mx-auto  ">{children}</main>
+        <main className="py-2 md:w-11/12 mx-auto min-h-[calc(100vh-302px)] ">{children}</main>
 
         <footer>
           <Footer />
